@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="event2.css">
+    <style>
+        *{
+    margin: 0;
+    padding:0;
+    outline: none;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Poppins";
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background-image:linear-gradient(rgb(132, 132, 199),rgb(209, 150, 40),pink);
+}
+.row{
+    width: 80%;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 50px;
+    overflow-x: hidden;
+    padding: 5rem 0;
+}
+.row .imagewrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+
+}
+.row .imagewrapper {
+    overflow: hidden;
+}
+.row .imagewrapper:hover img{
+    transform: scale(1.25);
+
+}
+.row .contentwrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left:30px ;
+
+}
+.row .contentwrapper span.textwrapper{
+    display: block;
+    font-size: 20px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+
+}
+/* .row .contentwrapper span.textwrapper span{
+    display: inline-block;
+    background: rgb(0, 0, 0);
+    width: 70px;
+    height: 5px;
+} */
+.row .contentwrapper h2{
+    font-size: 40px;
+    font-weight: 700px;
+    color: darkslategray;
+    padding-bottom: 20px;
+}
+.row .contentwrapper p{
+    font-size: 20px;
+    line-height: 25px;
+    padding-bottom: 15px;
+    
+}
+/* .r1{
+    background-color: rgb(192, 187, 187);
+} */
+.content a{
+    text-decoration: none;
+    font-weight: 20;
+}
+.add{
+    margin-top: 25px;
+}
+/* CSS */
+.button-33 {
+  background-color: white;
+  border-radius: 100px;
+  box-shadow: rgba(249, 252, 255, 0.2) 0 -25px 18px -14px inset,rgba(255, 255, 255, 0.15) 0 1px 2px,rgba(255, 255, 255, 0.15) 0 2px 4px,rgba(255, 255, 255, 0.15) 0 4px 8px,rgba(248, 248, 248, 0.15) 0 8px 16px,rgba(248, 250, 249, 0.15) 0 3px 32px;
+ 
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 200px;
+  height: 50px;
+  margin-top:10px;
+}
+
+.button-33:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0 -25px 18px -14px inset,rgba(9, 12, 10, 0.25) 0 1px 2px,rgba(8, 11, 9, 0.25) 0 2px 4px,rgba(2, 5, 3, 0.25) 0 4px 8px,rgba(0, 0, 0, 0.25) 0 8px 16px,rgba(15, 21, 17, 0.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+    </style>
+</head>
+<body>
+    <div class="add">
+        <h2>Click here to add more events !!</h2>
+        <center>
+            <button class="button-33">
+                ADD
+            </button>
+        </center>
+
+    </div>
+    <div>
+        <div class="row r1">
+            <div class="imagewrapper">
+                <img src="https://meetings.skift.com/wp-content/uploads/2023/11/a-group-of-diverse-professionals-in-a-high-tech-environment-brainstorming-and-discussing-around-a-futuristic-display-of-advanced-event-technology.jpg" alt="image">
+            </div>
+            <div class="contentwrapper">
+                <div class="content">
+
+            
+                    <span class="textwrapper">
+                        <span></span>
+                    </span>
+                    <h2>Techzite</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iste animi corrupti totam vitae, voluptates et aliquam, ipsa quaerat quasi sit odit praesentium, quia voluptate at soluta ab magni rem.</p>
+                    <p><b>Date:</b> 20 september 2024</p>
+                    <p><b>Venue:</b> SAC</p>
+                    <a href="#">Book your slot</a>
+                </div>
+            </div>
+        </div>
+        <div class="row r2">
+            <div class="imagewrapper">
+                <img src="https://cdn.britannica.com/99/155499-050-864E622E/oil-lamps.jpg" alt="image">
+            </div>
+            <div class="contentwrapper">
+                <div class="content">
+
+            
+                    <span class="textwrapper">
+                        <span></span>
+                    </span>
+                    <h2>Pramida</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iste animi corrupti totam vitae, voluptates et aliquam, ipsa quaerat quasi sit odit praesentium, quia voluptate at soluta ab magni rem.</p>
+                    <p><b>Date:</b> 18 october 2024</p>
+                    <p><b>Venue:</b>SAC </p>
+                    <a href="#">Book your slot</a>
+                </div>
+            </div>
+        </div>
+        <div class="row r3">
+            <div class="imagewrapper">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH8kmWeTEzDG2rCoFYBgo5IRf-QbmHaNndqw&s" alt="image">
+            </div>
+            <div class="contentwrapper">
+                <div class="content">
+
+            
+                    <span class="textwrapper">
+                        <span></span>
+                    </span>
+                    <h2>cricket tournment</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iste animi corrupti totam vitae, voluptates et aliquam, ipsa quaerat quasi sit odit praesentium, quia voluptate at soluta ab magni rem.</p>
+                    <p><b>Date:</b>30 November 2024</p>
+                    <p><b>Venue:</b> RKV Grounds</p>
+                    <a href="#">Book your slot</a>
+                </div>
+            </div>
+        </div>
+        <div class="row r4">
+            <div class="imagewrapper">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS56HGWSsm91Yzbgl6-UF0gj7AocIZjPhdcBA&s" alt="image">
+            </div>
+            <div class="contentwrapper">
+                <div class="content">
+
+            
+                    <span class="textwrapper">
+                        <span></span>
+                    </span>
+                    <h2>Abhiyanth</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iste animi corrupti totam vitae, voluptates et aliquam, ipsa quaerat quasi sit odit praesentium, quia voluptate at soluta ab magni rem.</p>
+                    <p><b>Date:</b> 30 March 2025</p>
+                    <p><b>Venue:</b>Grounds</p>
+                    <a href="#">Book your slot</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

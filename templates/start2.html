@@ -1,0 +1,412 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="start2.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+.navbar-brand{
+    margin-left: 30%;
+}
+body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #faf9f9, #fdfdff);
+            height: 100vh;
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+.container{
+    width:90%;
+    padding: 20;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+@media (min-width: 768px) {
+    .col-sm-12 {
+      width: 100%;
+    }
+  }
+.header1 {
+    color: #AA0000;
+    font-size: 24px;
+    font-family: Arial;
+    font-weight: bold;
+    /* margin-top: 5px; */
+    text-align: center;
+}
+.content{
+    width:100%;
+    height:100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0.6s;
+}
+.content:hover{
+    opacity:1;
+
+}
+.content a{
+    text-decoration: none;
+}
+.c1{
+    background: rgba(201, 205, 208, 0.6);
+}
+.c2{
+    background: rgba(255, 252, 227, 0.6);
+}
+.c3{
+    background: rgba(252, 248, 248, 0.6);
+}
+.c4{
+    background: rgba(238, 240, 242, 0.6);
+}
+.content h1{
+    font-size: 45px;
+    color:white;
+    margin-bottom: 15px;
+
+}
+.container2 {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 2% ;
+            margin-left: 15%;
+        }
+.container {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 7%;
+        }
+
+
+
+.box{
+    width: 250px;
+    margin: 0 10px;
+    box-shadow: 0 0 20px 2px rgba(22, 28, 28, 0.6);
+    transition: 1s;
+
+}
+.box img{
+    display: block;
+    width: 250px;
+    border-radius: 5px;
+    height: 100%;
+
+}
+.page{
+            flex-direction:column;
+        }
+        .header1 {
+        color: #AA0000;
+        font-size: 24px;
+        font-family: Arial;
+        font-weight: bold;
+        margin-top:5px;
+        text-align: center;
+        }
+        .header2 {font-size: 16px; color: #AA0000; font-family: Tahoma; text-align: center;}
+        .header5 {font-size: 16px; color: #AA0000; font-family: Tahoma; text-align: center;}
+.image{
+    width: 250px;
+    position: relative;
+    display: block;
+    margin: auto;
+    height: 100%;
+}
+.box:hover{
+    transform: scale(1.3);
+    z-index: 2;
+}
+    </style>
+</head>
+<body>
+    <div class="container2">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <a href="index.php"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt-R0ou1y74MAIUcxYi9FnKwSrOcOTN4grxw&s" alt="logo" align="left" class="title-logo" width="75"></a>
+                <div class="header1">Rajiv Gandhi University of Knowledge Technologies-Andhra Pradesh</div>
+                <div class="header2">Catering to the Educational Needs of Gifted Rural Youth of Andhra Pradesh</div>
+                <div class="header2"><font color='#0000a0'>Accredited by '<strong>NAAC</strong>' with '<strong>B+</strong>' Grade</font></div>
+                <div class="header2">(Established by the Govt. of Andhra Pradesh and recognized as per Section 2(f), 12(B) of UGC Act, 1956)</div>
+                
+            </div>               						
+            </div>
+        </div>
+    </div>
+   
+    <div class="container">
+        <div class="box">
+            <div class="image">
+                <img src="https://hire4event.com/blogs/wp-content/uploads/2019/04/Artist-For-College-Events.jpg" >
+            </div>
+            <div class="content c1">
+                <a href="{{ url_for('events') }}">  <h2>EVENTS</h2></a>
+                </div>
+        </div>
+        <div class="box">
+            <div class="image">
+                <img src="https://cdn-icons-png.flaticon.com/512/4658/4658943.png" height="100%">
+            </div>
+            <div class="content c2">
+                <h2>Feedback</h2>
+            </div>
+            
+        </div>
+        <div class="box">
+            <div class="image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTKKo0LS5A8-5sIWnaaMGU5_rOnEYdC1IlgQ&s" height="100%">
+            </div>
+            <div class="content c3">
+                <h2>Enroll Now</h2>
+            </div>
+           
+        </div>
+        <div class="box">
+            <div class="image">
+                <img src="https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg" height="100%">
+            </div>
+            <div class="content c4">
+                <h2>Dashboard</h2>
+            </div>
+            
+        </div>
+       
+    </div>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="start2.css"> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #faf9f9, #fdfdff);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: #007bff;
+        }
+        .navbar-brand {
+            margin-left: 2rem;
+            color: white;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            margin-top: 2rem;
+        }
+        .box {
+            width: 250px;
+            margin: 15px;
+            box-shadow: 0 0 20px 2px rgba(22, 28, 28, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            height: 250px;
+        }
+        .box:hover {
+            transform: scale(2);
+            box-shadow: 0 0 30px 5px rgba(22, 28, 28, 0.6);
+        }
+        .box img {
+            display: block;
+            width: 100%;
+            /* height: 250px; */
+        }
+        .content {
+            padding: 1rem;
+            text-align: center;
+        }
+        .content h2 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 0.5rem;
+        }
+        .logout-btn {
+            margin: 1rem;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+        .container2 {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 1% ;
+            margin-left: 15%;
+        }
+.container {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 2%;
+            
+        }
+
+
+
+.box{
+    width: 250px;
+    margin: 0 10px;
+    box-shadow: 0 0 20px 2px rgba(22, 28, 28, 0.6);
+    transition: 1s;
+    height: auto;
+    
+
+
+}
+a{
+    text-decoration: none;
+}
+.box img{
+    display: block;
+    width: 250px;
+    border-radius: 5px;
+    height: 100%;
+
+}
+.page{
+            flex-direction:column;
+        }
+        .header1 {
+        color: #AA0000;
+        font-size: 24px;
+        font-family: Arial;
+        font-weight: bold;
+        margin-top:5px;
+        text-align: center;
+        }
+        .header2 {font-size: 16px; color: #AA0000; font-family: Tahoma; text-align: center;}
+        .header5 {font-size: 16px; color: #AA0000; font-family: Tahoma; text-align: center;}
+.image{
+    width: 250px;
+    position: relative;
+    display: block;
+    margin: auto;
+    height: 100%;
+}
+.box:hover{
+    transform: scale(1.1);
+    z-index: 2;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <a href="index.php"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt-R0ou1y74MAIUcxYi9FnKwSrOcOTN4grxw&s" alt="logo" align="left" class="title-logo" width="75"></a>
+                <div class="header1">Rajiv Gandhi University of Knowledge Technologies-Andhra Pradesh</div>
+                <div class="header2">Catering to the Educational Needs of Gifted Rural Youth of Andhra Pradesh</div>
+                <div class="header2"><font color='#0000a0'>Accredited by '<strong>NAAC</strong>' with '<strong>B+</strong>' Grade</font></div>
+                <div class="header2">(Established by the Govt. of Andhra Pradesh and recognized as per Section 2(f), 12(B) of UGC Act, 1956)</div>
+                
+            </div>               						
+            </div>
+        </div>
+    </div>
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">RGUKT</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('homepage') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('events') }}">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav> -->
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                
+                    <div class="box">
+                        <a href="{{ url_for('events') }}">
+                        <img src="https://hire4event.com/blogs/wp-content/uploads/2019/04/Artist-For-College-Events.jpg" target="{{ url_for('events') }}" alt="Events">
+                        </a>
+                        
+                        <div class="content">
+                            <a href="{{ url_for('events') }}">
+                                <h2>Events</h2>
+                            </a>
+                        </div>
+                    </div>
+                
+            </div>
+           
+            <div class="col-md-3">
+                <div class="box">
+                    <a href="{{ url_for('enroll') }}">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTKKo0LS5A8-5sIWnaaMGU5_rOnEYdC1IlgQ&s" alt="Enroll Now">
+                    </a>
+                    <div class="content">
+                        <a href="{{ url_for('enroll') }}">
+                            <h2>Enroll</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box">
+                    <img src="https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg" alt="Dashboard">
+                    <div class="content">
+                        <h2>Dashboard</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4658/4658943.png" alt="Feedback">
+                    <div class="content">
+                        <h2>Feedback</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 700px;
+            margin: auto;
+        }
+        h1 {
+            color: #343a40;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        a {
+            align-items: center;
+            margin-left: 265px;
+        }
+        .btn-highlight {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+            margin-bottom: 20px;
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.2rem;
+        }
+        .btn-highlight:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+            float: right;
+            margin-top: 20px;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+        img {
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">{{ event.name }}</h1>
+        {% if event.image %}
+        <img src="{{ url_for('get_image', id=event.id) }}" alt="Event Image" class="img-fluid mb-4">
+        {% endif %}
+        <p><strong>Description:</strong> {{ event.description }}</p>
+        <p><strong>Date:</strong> {{ event.date }}</p>
+        <p><strong>Venue:</strong> {{ event.venue }}</p>
+        <a href="{{ url_for('book', event=event.name) }}" class="btn btn-highlight mt-4">Book your slot</a>
+        <a href="{{ url_for('user_event') }}" >Back to Events</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

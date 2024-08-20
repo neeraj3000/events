@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f8f6f9, #f4f5f6);
+            height: 100vh;
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .register-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            margin-left: 30%;
+            /* margin-bottom: 30%; */
+        }
+
+        .register-box h2 {
+            margin: 0 0 20px;
+            text-align: center;
+            font-size: 30px;
+            color: #333;
+
+        }
+
+        .textbox {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .textbox label {
+            display: block;
+            text-align: left;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .textbox input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .textbox input:focus {
+            border-color: #6a11cb;
+        }
+
+        .textbox .eye-icon {
+            position: absolute;
+            right: 10px;
+            top: 30px;
+            cursor: pointer;
+        }
+
+        .login-link {
+            margin-top: 20px;
+        }
+
+        .login-link a {
+            color: #6a11cb;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        .container2 {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 1% ;
+            margin-left: 15%;
+        }
+.container {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 2%;
+        }
+
+
+
+.box{
+    width: 250px;
+    margin: 0 10px;
+    box-shadow: 0 0 20px 2px rgba(22, 28, 28, 0.6);
+    transition: 1s;
+
+}
+.box img{
+    display: block;
+    width: 250px;
+    border-radius: 5px;
+    height: 100%;
+
+}
+.page{
+            flex-direction:column;
+        }
+        .header1 {
+        color: #AA0000;
+        font-size: 24px;
+        font-family: Arial;
+        font-weight: bold;
+        margin-top:5px;
+        text-align: center;
+        }
+        .header2 {font-size: 16px; color: #AA0000; font-family: Tahoma; text-align: center;}
+        .header5 {font-size: 16px; color: #AA0000; font-family: Tahoma; text-align: center;}
+.image{
+    width: 250px;
+    position: relative;
+    display: block;
+    margin: auto;
+    height: 100%;
+}
+.box:hover{
+    transform: scale(1.3);
+    z-index: 2;
+}
+    </style>
+</head>
+<body>
+    <div class="container2">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <a href="index.php"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt-R0ou1y74MAIUcxYi9FnKwSrOcOTN4grxw&s" alt="logo" align="left" class="title-logo" width="75"></a>
+                <div class="header1">Rajiv Gandhi University of Knowledge Technologies-Andhra Pradesh</div>
+                <div class="header2">Catering to the Educational Needs of Gifted Rural Youth of Andhra Pradesh</div>
+                <div class="header2"><font color='#0000a0'>Accredited by '<strong>NAAC</strong>' with '<strong>B+</strong>' Grade</font></div>
+                <div class="header2">(Established by the Govt. of Andhra Pradesh and recognized as per Section 2(f), 12(B) of UGC Act, 1956)</div>
+                
+            </div>               						
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="register-box">
+            <h2>Register</h2>
+            <form method="POST" action="/reguser">
+                <div class="form-group">
+                    <label for="name">Enter your name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_number">Enter your ID number:</label>
+                    <input type="text" class="form-control" id="id_number" name="id_number" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Enter your email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg_password">Password:</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="reg_password" name="password" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-eye eye-icon" onclick="togglePassword('reg_password')"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reg_confirm_password">Re-enter Password:</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="reg_confirm_password" name="confirm_password" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-eye eye-icon" onclick="togglePassword('reg_confirm_password')"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </form>
+            <div class="alert-container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    {% for category, message in messages %}
+                      <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+            </div>
+            <div class="login-link">
+                <p>Already have an account? <a href="{{ url_for('home') }}">Login here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function togglePassword(fieldId) {
+            var field = document.getElementById(fieldId);
+            var icon = field.nextElementSibling.firstElementChild;
+            if (field.type === "password") {
+                field.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                field.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+    </script>
+</body>
+</html>

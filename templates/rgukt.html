@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* background: linear-gradient(to right, #faf9f9, #fdfdff); */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: 
+                rgba(0, 0, 0, 0.5),
+                url('../static/images/rkv3.jpeg');
+            background-size: cover; 
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat;
+        }
+        .menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .menu span {
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: #333;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        .menu-content {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 10;
+        }
+        .menu-content a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            transition: background 0.3s;
+        }
+        .menu-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            margin-top: 10px;
+        }
+        .container4 {
+            width: 90%;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .box {
+            width: 250px;
+            margin: 15px;
+            box-shadow: 0 0 20px 2px rgba(22, 28, 28, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            height: 250px;
+        }
+        .box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px 5px rgba(22, 28, 28, 0.6);
+        }
+        .box img {
+            display: block;
+            width: 100%;
+        }
+        .content {
+            padding: 1rem;
+            text-align: center;
+        }
+        .content h2 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 0.5rem;
+        }
+        .logout-btn {
+            margin: 1rem;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+        .container2 {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 1% ;
+            margin-left: 15%;
+        }
+        .page {
+            flex-direction: column;
+        }
+        .header1 {
+            color: #AA0000;
+            font-size: 24px;
+            font-family: Arial;
+            font-weight: bold;
+            margin-top: 5px;
+            text-align: center;
+        }
+        .header2 {
+            font-size: 16px;
+            color: #AA0000;
+            font-family: Tahoma;
+            text-align: center;
+        }
+        .header5 {
+            font-size: 16px;
+            color: #AA0000;
+            font-family: Tahoma;
+            text-align: center;
+        }
+        .image {
+            width: 250px;
+            position: relative;
+            display: block;
+            margin: auto;
+            height: 100%;
+        }
+        .welcome-message {
+            background-color: #282c34;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 80%;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .welcome-text {
+            font-size: 18px;
+            color: #040000;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-nav .nav-link {
+            color: black;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
+
+        #about-us {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgb(255, 254, 254);
+            margin-top: 50px;
+        }
+
+        #about-us h2 {
+            color: #333;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        #about-us h3 {
+            color: #333;
+            text-align: left;
+        }
+
+        #about-us p, #about-us li {
+            color: #555;
+        }
+
+        #about-us img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        * {box-sizing: border-box;}
+        body {font-family: Verdana, sans-serif;}
+        .mySlides {display: none;}
+        img {vertical-align: middle;}
+
+        /* Slideshow container */
+        .slideshow-container {
+        max-width: 700px;
+        position: relative;
+        margin: auto;
+        }
+
+        /* Caption text */
+        .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        }
+
+        .active {
+        background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+        .text {font-size: 11px}
+        }
+
+        .image-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-container {
+            flex: 1;
+            margin: 0 10px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            display:block;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .image-container:hover .image {
+            opacity: 0.3;
+        }
+
+        .image-container:hover .overlay {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .image-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image-container {
+                margin-bottom: 20px;
+            }
+        }
+        #past-events{
+            color: #333;
+            font-weight: bold;
+            text-align: left;
+            margin-left: 30px;
+        }
+        .contact-form {
+            background: #ffffff;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            width: 70%;
+            border-radius: 1rem;
+            padding: 2%;
+        }
+        .contact-form h3 {
+            text-align:left;
+            color: #333;
+        }
+        .contact-form .form-control {
+            margin-top: 10px;
+        }
+        .contact-form button {
+            border: none;
+           
+            padding: 1%;
+            background: #007bff;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background: #0056b3;
+        }
+        .social-icons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            margin: 0 15px;
+            color: #000103;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: #0056b3;
+        }
+        .fa {
+            padding: 10px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* Add a hover effect if you want */
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        /* Set a specific color for each brand */
+
+        /* Facebook */
+        .fa-facebook {
+        background: #3B5998;
+        color: white;
+        }
+
+        /* Twitter */
+        .fa-twitter {
+        background: #55ACEE;
+        color: white;
+        }
+        .fa-google {
+        background: #dd4b39;
+        color: white;
+        }
+
+        .fa-linkedin {
+        background: #007bb5;
+        color: white;
+        }
+
+        .fa-youtube {
+        background: #bb0000;
+        color: white;
+        }
+
+        .fa-instagram {
+        background: #125688;
+        color: white;
+        }
+        .icon{
+            margin-left: 100px;
+        }
+        .btnContact {
+            margin-top: 20px;
+            background: #5783db;
+            background-color: #33b249; /* Sets a blue background color */
+            color: white; /* Sets the text color to white */
+            font-size: 1.2rem; /* Increases the font size */
+            font-weight: bold; /* Makes the text bold */
+            padding: 10px 20px; /* Adds padding inside the button */
+            border: none; /* Removes the default border */
+            border-radius: 5px; /* Makes the button rounded */
+            cursor: pointer; /* Changes the cursor to a pointer on hover */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Adds transition effects */
+            display: block; /* Ensures the button takes up the full width of its container */
+    
+}
+
+.btnContact:hover {
+    background-color: #33b249; /* Changes the background color on hover */
+    transform: scale(1.05); /* Slightly increases the size on hover */
+}
+
+        /* .contactus{
+            margin-right: 100px;
+        } */
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">{{user.role}}</a>
+            <!-- Toggler/collapsible Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('homepage')}}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('user_event')}}">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-us">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#past-events">Past Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contactus">Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <a href="index.php"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt-R0ou1y74MAIUcxYi9FnKwSrOcOTN4grxw&s" alt="logo" align="left" class="title-logo" width="75"></a>
+                <div class="header1">Rajiv Gandhi University of Knowledge Technologies-Andhra Pradesh</div>
+                <div class="header2">Catering to the Educational Needs of Gifted Rural Youth of Andhra Pradesh</div>
+                <div class="header2"><font color='#0000a0'>Accredited by '<strong>NAAC</strong>' with '<strong>B+</strong>' Grade</font></div>
+                <div class="header2">(Established by the Govt. of Andhra Pradesh and recognized as per Section 2(f), 12(B) of UGC Act, 1956)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="/static/images/dept.jpg" style="width:100%">
+          <div class="text">Caption Text</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="/static/images/dept3.jpg" style="width:100%">
+          <div class="text">Caption Two</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <img src="/static/images/ab2.jpg" style="width:100%">
+          <div class="text">Caption Three</div>
+        </div>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
+        
+    
+    
+
+    <div class="container4">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box">
+                    <a href="{{ url_for('user_event') }}">
+                        <img src="https://hire4event.com/blogs/wp-content/uploads/2019/04/Artist-For-College-Events.jpg" alt="Events">
+                    </a>
+                    <div class="content">
+                        <a href="{{ url_for('user_event') }}">
+                            <h2>Events</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box">
+                    <a href="{{ url_for('enroll') }}">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTKKo0LS5A8-5sIWnaaMGU5_rOnEYdC1IlgQ&s" alt="Enroll Now">
+                    </a>
+                    <div class="content">
+                        <a href="{{ url_for('enroll') }}">
+                            <h2>Enroll</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box">
+                    <a href="{{ url_for('profile', name=user.name) }}">
+                        <img src="https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg" alt="Dashboard">
+                    </a>
+                    <div class="content">
+                        <a href="{{ url_for('profile', name=user.name) }}">
+                            <h2>Dashboard</h2>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box">
+                    <a href="{{ url_for('feedback') }}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4658/4658943.png" alt="Feedback">
+                    </a>
+                    <div class="content">
+                        <a href="{{ url_for('feedback') }}">
+                            <h2>Feedback</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="about-us">
+            <h2>About Us</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="static/images/rlogo.jpg" alt="College Image">
+                </div>
+                <div class="col-md-8">
+                    <p class="lead"> Welcome to <b>RGUKT, RK VALLEY</b> a vibrant hub of learning and community engagement. Our institution fosters an environment where students, faculty, and staff collaborate to achieve academic excellence and personal growth. We believe in the power of events to enrich our community, hosting a variety of activities throughout the year to inspire and educate.</p>
+
+                    <p class="lead">Our initiatives include academic conferences and workshops that bring together experts and students to explore cutting-edge topics. We celebrate campus diversity through cultural festivals and engage with society via volunteer work and partnerships with local organizations. Additionally, we support innovators through hackathons and mentorship programs, while promoting wellness through sports and fitness challenges.
+                        
+                    </p>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 id="past-events">Past Events</h2>
+        <div class="image-row">
+            {% for event in past_events %}
+            <div class="image-container">
+                <img src="{{ url_for('get_image_past', id=event.id) }}" class="image" alt="Image 1">
+                <div class="overlay"><h1><u>{{event.name}}</u></h1> {{event.description}}</div>
+                <!-- <div class="overlay">{{event.description}}</div> -->
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+    <div class="container contact-form">
+        <form method="post" action="/feedbacksubmit">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contactus" id="contactus">
+                        <h3>Contact Us</h3>
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Name:" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Email:" required />
+                        </div>
+                        <div class="form-group">
+                            <textarea name="feedback" class="form-control" placeholder="Feedback:" style="width: 100%; height: 150px;" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btnContact">Send Feedback</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-6">
+                    <div class="icon">
+                        <h2>Follow Us</h2>
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-google"></a>
+                        <a href="#" class="fa fa-linkedin"></a>
+                        <a href="#" class="fa fa-youtube"></a>
+                        <a href="#" class="fa fa-instagram"></a>
+                    </div>
+                   
+    
+                </div>
+            </div>
+        </form>
+        
+    
+        
+    </div>
+    
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+
+
+    <script>
+        function toggleMenu() {
+            const menuContent = document.getElementById('menuContent');
+            menuContent.style.display = menuContent.style.display === 'block' ? 'none' : 'block';
+        }
+        function toggleNav() {
+            var links = document.querySelectorAll('.navbar a');
+            links.forEach(link => {
+                if (link.style.display === 'block') {
+                    link.style.display = 'none';
+                } else {
+                    link.style.display = 'block';
+                }
+            });
+        }
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-LT04Jgg4NtU2xz8yy+F9GTxGgtN1e8F0MLl4dOBfS1ilpkSGszC+4U5U8t6I4lWk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-hRZ7I/rtU7ZX6N/gUd/IGQkA69JPbXcEp+93q5Tyh/BotU9Boq/SonT6Flp0EZcc" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+</body>
+</html>

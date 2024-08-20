@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-img-top {
+            height: 300px !important;
+            width: 100%;
+            object-fit: contain;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .card-title {
+            color: #007bff;
+        }
+        h3 {
+            font-size: 1.5rem; /* Increases the size of the text */
+            font-weight: bold; /* Makes the text bold */
+            color: #2c3e50; /* Sets a dark, professional color */
+            text-align: center; /* Centers the text */
+            margin-top: 1.5rem; /* Adds some space above the heading */
+            margin-bottom: 1rem; /* Adds some space below the heading */
+            text-transform: uppercase; /* Converts the text to uppercase */
+            letter-spacing: 2px; /* Increases space between letters for a more elegant look */
+             /* Adds a bottom border for emphasis */
+            padding-bottom: 0.5rem; /* Adds some padding below the text */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Events</h1>
+        <div class="row">
+            {% for event in events %}
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <h3>{{event.name}}</h3>
+                    {% if event.image %}
+                    <img src="{{ url_for('get_image', id=event.id) }}" class="card-img-top" alt="Event Image">
+                    {% endif %}
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <a href="{{ url_for('event_details', id=event.id) }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <a href="{{ url_for('add_event') }}" class="btn btn-success mt-4">Add New Event</a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

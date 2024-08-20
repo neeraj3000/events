@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enrollment Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 3px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 3px;
+      /* border: 3px solid #4cb6ad; Change the border color */
+      background-color: #5c835215; /* Change the background color */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center"><u>Volunteer Enrollment Form</u></h1><br>
+    <form>
+      <div class="form-group">
+        <label for="studentName">Student Name:</label>
+        <input type="text" class="form-control" id="studentName" name="studentName" required>
+      </div>
+      <div class="form-group">
+        <label for="studentId">Student ID:</label>
+        <input type="text" class="form-control" id="studentId" name="studentId" required>
+      </div>
+      <div class="form-group">
+        <label for="studentPhone">Student Phone:</label>
+        <input type="text" class="form-control" id="studentPhone" name="studentPhone" required>
+      </div>
+      <div class="form-group">
+        <label for="studentEmail">Email:</label>
+        <input type="email" class="form-control" id="studentEmail" name="studentEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="branch">Branch:</label>
+        <select class="form-control" id="branch" name="branch" required>
+          <option value="">Select a branch</option>
+          <option value="CSE">CSE</option>
+          <option value="ECE">ECE</option>
+          <option value="EEE">EEE</option>
+          <option value="CIVIL">CIVIL</option>
+          <option value="MECH">MECH</option>
+          <option value="CHEM">CHEM</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="managementType">Type of Management:</label>
+        <select class="form-control" id="managementType" name="managementType" required>
+          <option value="">Select a type</option>
+          <option value="crowd_management">Crowd Management</option>
+          <option value="volunteers">Volunteers</option>
+          <option value="cultural_events">Cultural Events</option>
+          <option value="decoration_arts">Decoration Arts</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary"><font align="center" >Submit</font></button>
+    </form>
+  </div>
+</body>
+</html>
